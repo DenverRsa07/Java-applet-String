@@ -1,0 +1,39 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.geom.*;
+import javax.swing.JOptionPane;
+
+/**@authors: Joseph Nkomo
+ */
+public class String extends Applet
+{
+     private int [] PentagonX = {200,80, 200, 320};
+     private int [] PentagonY = {10, 130, 250, 130};
+     String Name;
+     
+    public void init(){
+       setSize(700, 500);
+        Font myf=new Font("Arial", Font.BOLD,16);
+        setFont(myf); 
+    }
+   public void paint(Graphics g){
+      g.setColor(Color.red);
+      g.drawPolygon(PentagonX, PentagonY,4);
+            
+      
+      g.setColor(Color.yellow);
+      g.fillPolygon(PentagonX, PentagonY, 4);
+      
+      Graphics2D g2d = (Graphics2D)g;
+      Line2D.Double myline = new Line2D.Double(80, 130, 315, 130);
+      g.setColor(Color.black);
+      g2d.draw(myline);
+      
+      g.setColor(Color.black);
+       java.lang.String Name = JOptionPane.showInputDialog("Enter your Name"); 
+      g.drawString("Welcome " + Name, 130, 130);
+      
+      
+    }
+
+} 
